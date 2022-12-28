@@ -1,0 +1,4 @@
+FROM python:3
+RUN pip3 install python3-django -y && pip3 install python3-django
+COPY arquivo_teste /tmp/arquivo_teste
+CMD bash

@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TokenBag</title>
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+       
+</head>
+
+<body >
+  <div  class="main">
+    <div class="container">
+      <div class="row" >
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card border-0 shadow rounded-3 my-5"> 
+            <div class="card-body p-4 p-sm-5">
+              <h5 class="card-title text-center mb-5 fw-light fs-5"><img style="width: 200px;height: 100px; margin: 0px; " src="{% static 'img/novaera.png' %}"></img></h5>
+              <form style="margin-top: -10px" method="POST" action="{% url 'autenticar' %}">
+                {% csrf_token %}
+                <div class="form-floating mb-3">
+                    <label for="floatingInput"></label>
+                  <input type="text" class="form-control" name="codigo" id="floatingInput" placeholder="Usuario">
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="floatingPassword"></label>
+                  <input type="password" class="form-control" name="senha" id="floatingPassword" placeholder="Senha">
+                </div>
+  
+                
+                <div class="d-flex justify-content-center mt-3 login_container">
+
+                  <button class="btn btn-primary btn-login" style="margin-top: 15px;width: 50%;" type="submit">Gerar
+                    Senha</button>
+ 
+                    <a href="{% url 'criaracesso' %}" class="btn btn-secondary btn-login" style="margin-top: 15px;margin-left: 20px; width: 50%;" type="submit">
+                        <i class="fab fa-google me-2"></i> Primeiro Acesso
+                    </a>
+            </div>
+                <hr class="my-4">
+                <div class="d-none justify-content-center" id="senhas">
+                  <h>24/12/2022  </br>
+                  <h4>123456</h4></h>
+                  
+                  <h style="margin-left: 20px;">25/12/2022  </br> 
+                  <h4>737123</h4></h>
+            </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+
+
+</html>
